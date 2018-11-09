@@ -1,0 +1,14 @@
+# .gitignore
+
+# ignore shortcuts hopefully
+*.ini
+*.lnk
+
+# ignore all files starting with .
+.*
+
+# ignore packaged files
+### *.zip
+
+# track these files, if they exist
+!.gitignore
