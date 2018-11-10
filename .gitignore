@@ -1,8 +1,11 @@
 # .gitignore
 
-# ignore shortcuts hopefully
+# ignore shortcuts
 *.ini
 *.lnk
+
+#ignore links
+*.html
 
 # ignore all files starting with .
 .*
