@@ -5,7 +5,7 @@
 *.lnk
 
 # ignore all files starting with .
-#.*
+.*
 
 # ignore packaged files
 ### *.zip
