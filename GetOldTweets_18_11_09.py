@@ -1,7 +1,8 @@
 import sys
-
-
-sys.path.insert(0,'C:/Users/Bruno-NB/Documents/GitHub/GetOldTweets-python') #
+stop = [sys.path[1].index(c) for c in sys.path[1] if c=='A']
+path = (sys.path[1][0:stop[0]]+"Documents\GitHub\GetOldTweets-python")
+sys.path.insert(0,path)
+# sys.path.insert(0,'C:/Users/Bruno-NB/Documents/GitHub/GetOldTweets-python')
 if sys.version_info[0] < 3:
     import got
 else:
@@ -15,8 +16,9 @@ def printTweet(t):
 	print("Hashtags: %s\n" % t.hashtags)
 
 tweetCriteria = got.manager.TweetCriteria().setQuerySearch('bolsonaro').setSince("2018-05-01").setUntil("2018-06-01").setMaxTweets(3)
-tweet = got.manager.TweetManager.getTweets(tweetCriteria)[2]
-printTweet(tweet)
+tweet = got.manager.TweetManager.getTweets(tweetCriteria)
+printTweet([tweet[t] for t in range(len(tweet))])
+print([tweet[t] for t in range(len(tweet))])
 
 
 
