@@ -1,6 +1,5 @@
 import sys
 import os
-import pandas
 import json
 
 m = os.environ['COMPUTERNAME']
@@ -15,25 +14,40 @@ else:
     import got3 as got
 # Importando bibliotecas
 
-id (str)
-permalink (str)
-username (str)
-text (str)
-date (date)
-retweets (int)
-favorites (int)
+tweetCriteria = got.manager.TweetCriteria().setQuerySearch('bolsonaro').setSince("2018-05-01").setUntil("2018-06-01").setMaxTweets(3)
+t = got.manager.TweetManager.getTweets(tweetCriteria)
+
+jsonData = []
+file = open('st_py.json', 'w')
+for i in range(len(t)):
+    json.dump({'created_at':"t[i].date", 'id':int(t[i].id), 'id_str':t[i].id, 'text':t[i].text, 
+                       'source':t[i].permalink, 'user':{'name':t[i].username},
+                       'geo':t[i].geo, 'retweet_count':t[i].retweets, 'favorite_count':t[i].favorites,
+                       'entities':{'hashtags':t[i].hashtags, 'user_mentions':t[i].mentions}
+                      }, file)
+
+#file = open('st_py.json', 'w')
+json.dump(jsonData, file)
+
+with open('st_py.json') as f:
+	data = json.loads(f)
+	'''
+    data = json.loads(f)
+    for i in range(len(data)):
+        print(data[i])
+        #json.dumps(data[i], indent=4)
+'''
+'''
+id (str) -
+permalink (str) -
+username (str) -
+text (str) -
+date (date) -
+retweets (int) -
+favorites (int) -
 mentions (str)
-hashtags (str)
-geo (str)
-
-tweetCriteria = got.manager.TweetCriteria().setQuerySearch('bolsonaro').setSince("2018-05-01").setUntil("2018-06-01").setMaxTweets(1)
-tweet = got.manager.TweetManager.getTweets(tweetCriteria)
-print([tweet[t] for t in range(len(tweet))])
-print(tweet[0].id)
-
-
-
-
+hashtags (str) -
+geo (str) -
 
 def printTweet(t):
     print("Id: %s" % t.id)
@@ -68,3 +82,4 @@ def printTweet(t):
     printTweet("Test", tweet)
 
 
+'''

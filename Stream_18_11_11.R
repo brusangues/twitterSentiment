@@ -64,13 +64,14 @@ df <- parse_stream("st_04_20_12-30.json")
 
 
 setwd('E:/Documents/GitHub/twitterSentiment')
+setwd('C:/Users/Bruno-NB/Documents/GitHub/twitterSentiment')
 
 library(jsonlite)
 # Activate `rjson`
 library(rjson)
 
 # Import data from json file
-JsonData <- fromJSON(file= 'stex.json' )
+JsonData <- fromJSON(file= 'st_04_20_12-30.json' )
 
 x <- '{"items":[{"name":"Item 1","group":1},{"name":"Item 2","group":1},{"name":"Item 3","group":2}]}'
 
