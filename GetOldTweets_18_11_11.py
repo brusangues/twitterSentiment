@@ -14,24 +14,32 @@ else:
     import got3 as got
 # Importando bibliotecas
 
-tweetCriteria = got.manager.TweetCriteria().setQuerySearch('bolsonaro').setSince("2018-05-01").setUntil("2018-06-01").setMaxTweets(3)
+tweetCriteria = got.manager.TweetCriteria().setQuerySearch('bolsonaro').setSince("2018-05-01").setUntil("2018-06-01").setMaxTweets(2)
 t = got.manager.TweetManager.getTweets(tweetCriteria)
 
 jsonData = []
-file = open('st_py.json', 'w')
 for i in range(len(t)):
-    json.dump({'created_at':"t[i].date", 'id':int(t[i].id), 'id_str':t[i].id, 'text':t[i].text, 
+    jsonData.append({'created_at':"t[i].date", 'id':int(t[i].id), 'id_str':t[i].id, 'text':t[i].text, 
                        'source':t[i].permalink, 'user':{'name':t[i].username},
                        'geo':t[i].geo, 'retweet_count':t[i].retweets, 'favorite_count':t[i].favorites,
                        'entities':{'hashtags':t[i].hashtags, 'user_mentions':t[i].mentions}
-                      }, file)
+                      })
 
-#file = open('st_py.json', 'w')
+file = open('st_py.json', 'w')
+#jsonData = {'text':'sucess'}
 json.dump(jsonData, file)
+file.close()
 
-with open('st_py.json') as f:
-	data = json.loads(f)
-	'''
+
+with open('st_model.json','r') as f:
+	#data = json.load(f.read())
+	print('one: '+type(f))
+	print('TWO: '+str(f))
+	data = json.load(f)
+	print(data[0]["id"])
+
+
+'''
     data = json.loads(f)
     for i in range(len(data)):
         print(data[i])
