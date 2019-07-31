@@ -1,4 +1,8 @@
 # twitterSentiment
 
 #Test1 readme
-Test2
+Github workflow:
+	git pull
+	git add *
+	git commit -m "Mensagem"
+	git push
