@@ -23,8 +23,8 @@ twitter_token <- token(machine)
 }
 
 #Função Principal ___________________________________________________________________________
-time = 1 # Minutos
-reps = 1
+time = 5 # Minutos
+reps = 2
 sleep = 0
 #query <- "elenão, elenao, bolsonaro, bolsomito, haddad, lula, alckmin, ciro, marina"
 query1 <- "bolsonaro, bolsomito, elesim"
@@ -46,7 +46,7 @@ for (i in 1:reps){
   stream_tweets(
     q = query,
     language = "pt",
-    timeout = 60*time,
+    timeout = time*60,
     type  = type,
     file_name = json_name,
     parse = FALSE,
