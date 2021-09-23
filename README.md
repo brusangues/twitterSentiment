@@ -8,7 +8,7 @@ https://jornadasaugm.faiufscar.com/anais#/trabalho/1915
 RTweet - Script para realizar o download de tweets passados de um dia, salvando o resultado em CSV.  
 Stream - Script para realizer o download de tweets em tempo real, salvando o resultado em JSON.  
 GetOldTweets - Testes para baixar tweets antigos utilizando python.  
-Uitl - Script para auxiliar na classificação de tweets manual.  
+Wordcloud - Testes para nuvem de palavras.  
+Util - Script para auxiliar na classificação de tweets manual.  
 Sent - Scripts para limpeza de dados e realização da análise de sentimento léxica.  
-Plot - Gráficos.  
-Wordcloud - Testes para nuvem de palavras  
+Plot - Gráficos finais.  
